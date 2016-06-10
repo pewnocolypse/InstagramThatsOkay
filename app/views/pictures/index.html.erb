@@ -1,14 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <style>
-      table, th, td {
-       border: 1px solid black;
-      }
-      td:nth-child(2) {
-       padding-right: 40px;
-      }​  
-    </style>
+    
   </head>
   <body >
     
@@ -63,38 +56,29 @@
 }​
 </style>
 <table>
-  <thead>
-    <tr>
-      <th >Subject</th>
-       
-      <th>Comment</th>
-      
-      <th>Date</th>
-     
-      <th>Image url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+ 
+<% count = 0 %>
   <tbody>
+    
     <% @pictures.each do |picture| %>
-      <tr>
-        <td class = "col-md-2"><%= picture.Subject %></td>
-        <td class = "col-md-2"> <%= picture.Comment %></td>
-        <td class = "col-md-2"><%= picture.Date %></td>
+      <% count = count + 1 %>
+      
         <td class = "col-md-2"> <img src="<%= picture.image_url %>" width = 150 height = 150></td>
-        <td class = "col-md-2"><%= link_to 'Show', picture %></td>
-        <th colspan = "3"> </th>
-        <td class = "col-md-2"><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td class = "col-md-2"><%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <% if count ==3 %>
+             <% count = 0 %>
+             <tr class = "row"></tr>
+          <% end %>
+      
+        
+        
+      
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Picture', new_picture_path %>
+
     
     
   </body>
