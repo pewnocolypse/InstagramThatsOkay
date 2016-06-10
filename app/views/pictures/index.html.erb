@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+  </head>
+  <body >
+    
+    
+    <table>
+      <tbody>
+        
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+           
+
+        
+            <ul class="nav navbar-nav">
+              <li>
+                <a class="navbar-brand" href="#"><h2 class = "text-warning">InstantGram </h2></a>
+              </li>
+              <li class = "col-md-2"></li>
+              <li class = "col-md-4"><a href="#"><div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for your friends">
+                <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+              </div></a></li>
+              <li "col-md-2"><a href="#"></a></li>
+              <li class = "col-md-1 pull-right"><a href="#">
+                <a href="/pictures/new"><img src="http://www.thegreatmedicines.com/wp-content/uploads/2014/12/110767-glowing-green-neon-icon-alphanumeric-plus-sign.png" width = 50 height = 50></a>
+                </li>
+            </ul>
+          </div>
+        </nav>
+          
+        <div class="container">
+         
+        </div>
+      </tbody>  
+    </table>
+    <table>
+      <tbody>
+        <tr>
+          
+        </tr>
+      </tbody>  
+    </table>
+<p id="notice"><%= notice %></p>
+
+<nav class="navbar navbar-default">
+       
+<h3 class = "text-Danger">Listing Pictures</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th >Subject</th>
+       
+      <th>Comment</th>
+      
+      <th>Date</th>
+     
+      <th>Image url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pictures.each do |picture| %>
+      <tr>
+        <td><%= picture.Subject %></td>
+        <td><%= picture.Comment %></td>
+        <td><%= picture.Date %></td>
+        <td><img src="<%= @picture.image_url%>"></td>
+        <td><%= link_to 'Show', picture %></td>
+        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+        <td><%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Picture', new_picture_path %>
+    
+    
+  </body>
+</html>
+
