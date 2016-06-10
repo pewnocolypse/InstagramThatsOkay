@@ -49,12 +49,56 @@
 
 <nav class="navbar navbar-default">
        
-<h3 class = "text-Danger">Listing Pictures</h3>
+<table>
+  <tbody>
+    <tr>
+      <td class = "col-md-2">
+      </td>
+      <td class = "col-md-2">
+       <h4>GoldenKookieMakne</h4>
+      </td>
+      <td class = "col-md-3">
+        <img src="https://ygfamilyartists.files.wordpress.com/2011/06/i_love_kpop_by_xdajoker-d3fg3a0.jpg">
+
+      </td >
+      <% fcount = 967 %>
+      <td class = "col-md-3">
+        <table>
+          <tbody>
+            <tr>
+              <h5>Followers: fcount</h5>
+            </tr>
+            <tr>
+              <h5>Following: 717</h5>
+            </tr>
+               <%= content_tag(:button, "Follow", :type=>:submit)%>
+            <tr>
+            </tr>
+          </tbody>
+        </table>
+            
+           
+          
+      </td>
+      <td class = "col-md-1">
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+
 <style type="text/css">
     td:nth-child(1) {
       padding-right: 20px;
+      padding-bottom: 50px;
+      padding-top: 50px;
 }​
 </style>
+
+
 <table>
  
 <% count = 0 %>
@@ -63,7 +107,10 @@
     <% @pictures.each do |picture| %>
       <% count = count + 1 %>
       
-        <td class = "col-md-2"> <img src="<%= picture.image_url %>" width = 150 height = 150></td>
+        <td class = "col-md-2"> <img src="<%= picture.image_url %>" width = 250 height = 250></td>
+          <td><%= link_to 'Show', picture %></td>
+ -        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+ -        <td class = "text-Danger"><%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% if count ==3 %>
              <% count = 0 %>
              <tr class = "row"></tr>
