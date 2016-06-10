@@ -1,8 +1,7 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
     
-  </head>
+    
+  
   <body >
     
     
@@ -16,7 +15,7 @@
         
             <ul class="nav navbar-nav">
               <li>
-                <a class="navbar-brand" href="#"><h2 class = "text-warning">InstantGram </h2></a>
+                <a class="navbar-brand" href="#"><h2 class = "text-Warning">InstantGram </h2></a>
               </li>
               <li class = "col-md-2"></li>
               <li class = "col-md-4"><a href="#"><div class="input-group">
@@ -27,7 +26,7 @@
               </div></a></li>
               <li "col-md-2"><a href="#"></a></li>
               <li class = "col-md-1 pull-right"><a href="#">
-                <a href="/pictures/new"><img src="http://www.thegreatmedicines.com/wp-content/uploads/2014/12/110767-glowing-green-neon-icon-alphanumeric-plus-sign.png" width = 50 height = 50></a>
+                <a href="/pictures/new"><img class = "img-responsive" src="http://www.thegreatmedicines.com/wp-content/uploads/2014/12/110767-glowing-green-neon-icon-alphanumeric-plus-sign.png" width = 50 height = 50></a>
                 </li>
             </ul>
           </div>
@@ -48,7 +47,7 @@
 <p id="notice"><%= notice %></p>
 
 <nav class="navbar navbar-default">
-       
+  <% fcount = 967 %>     
 <table>
   <tbody>
     <tr>
@@ -58,19 +57,20 @@
        <h4>GoldenKookieMakne</h4>
       </td>
       <td class = "col-md-3">
-        <img src="https://ygfamilyartists.files.wordpress.com/2011/06/i_love_kpop_by_xdajoker-d3fg3a0.jpg">
+        <img  class = "img-responsive" class = "img-rounded" src="https://ygfamilyartists.files.wordpress.com/2011/06/i_love_kpop_by_xdajoker-d3fg3a0.jpg" width = 300 height = 350>
 
       </td >
-      <% fcount = 967 %>
+      
       <td class = "col-md-3">
         <table>
           <tbody>
             <tr>
-              <h5>Followers: fcount</h5>
+              <h5>Followers: 2.2k</h5>
             </tr>
             <tr>
               <h5>Following: 717</h5>
             </tr>
+
                <%= content_tag(:button, "Follow", :type=>:submit)%>
             <tr>
             </tr>
@@ -102,12 +102,12 @@
 <table>
  
 <% count = 0 %>
-  <tbody>
-    
-    <% @pictures.each do |picture| %>
+  <tbody >
+   
+    <% @pictures.reverse.each do |picture| %>
       <% count = count + 1 %>
       
-        <td class = "col-md-2"> <img src="<%= picture.image_url %>" width = 250 height = 250></td>
+        <td class = "col-md-2" > <img class = "img-responsive" src="<%= picture.image_url %>" width 300 height = 250></td>
           <td><%= link_to 'Show', picture %></td>
  -        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
  -        <td class = "text-Danger"><%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -120,6 +120,7 @@
         
       
     <% end %>
+    
   </tbody>
 </table>
 
@@ -128,6 +129,5 @@
 
     
     
-  </body>
-</html>
+  
 

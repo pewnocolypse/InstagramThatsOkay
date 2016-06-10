@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160610142038) do
     t.string   "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "followCount"
   end
 
 end

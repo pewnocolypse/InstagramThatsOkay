@@ -5,6 +5,7 @@ class CreatePictures < ActiveRecord::Migration
       t.string :Comment
       t.string :Date
       t.string :image_url
+      t.integer :fcount
 
       t.timestamps null: false
     end
