@@ -1,21 +1,23 @@
-
-    
-    
-  
+  <html>
+  <head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  </head>
   <body >
     
     
     <table>
       <tbody>
         
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-fixed-top" class = "img-responsive">
           <div class="container-fluid">
            
 
         
             <ul class="nav navbar-nav">
               <li>
-                <a class="navbar-brand" href="#"><h2 class = "text-Warning">InstantGram </h2></a>
+                <a class="navbar-brand" href="#">
+                  <h2 class = "text-danger"><i>InstantGram </i></h2>
+                </a>
               </li>
               <li class = "col-md-2"></li>
               <li class = "col-md-4"><a href="#"><div class="input-group">
@@ -57,7 +59,7 @@
        <h4>GoldenKookieMakne</h4>
       </td>
       <td class = "col-md-3">
-        <img  class = "img-responsive" class = "img-rounded" src="https://ygfamilyartists.files.wordpress.com/2011/06/i_love_kpop_by_xdajoker-d3fg3a0.jpg" width = 300 height = 350>
+        <img  class = "img-responsive" class = "img-rounded" src="https://ygfamilyartists.files.wordpress.com/2011/06/i_love_kpop_by_xdajoker-d3fg3a0.jpg" width = 500 height = 600>
 
       </td >
       
@@ -70,8 +72,10 @@
             <tr>
               <h5>Following: 717</h5>
             </tr>
+              
 
-               <%= content_tag(:button, "Follow", :type=>:submit)%>
+               <button id="up" onclick=>follow</button>
+             
             <tr>
             </tr>
           </tbody>
@@ -103,31 +107,48 @@
  
 <% count = 0 %>
   <tbody >
-   
+   <tr class="row">
     <% @pictures.reverse.each do |picture| %>
       <% count = count + 1 %>
       
-        <td class = "col-md-2" > <img class = "img-responsive" src="<%= picture.image_url %>" width 300 height = 250></td>
-          <td><%= link_to 'Show', picture %></td>
- -        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
- -        <td class = "text-Danger"><%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class = "col-md-2" > 
+
+                <a href="/pictures/<%=picture.id%>"><img class = "img-responsive" src= "<%= picture.image_url %>" width = 400 height = 400 ></a>
+                
+
+          </td>
+          
+          
+         <td class = "col-md-w pull-down">
+            <%= link_to 'Edit', edit_picture_path(picture) %>
+            <p></p>
+            <p></p>
+
+            <%= link_to picture, method: :delete, data: {confirm: 'Are you sure?'} do %>
+              <%= image_tag("http://www.frankchimero.com/writing/what-screens-want/trash.jpg", size: "20x20") %>
+            <% end %>
+          </td>
+         
         <% if count ==3 %>
              <% count = 0 %>
-             <tr class = "row"></tr>
+             </tr><tr class = "row">
           <% end %>
       
-        
-        
       
     <% end %>
+
+  </tr>
     
   </tbody>
 </table>
 
-<br>
+</body>
 
 
     
     
   
 
+
+  </html>
+  
