@@ -5,8 +5,12 @@ class PicturesController < ApplicationController
   # GET /pictures.json
   def index
     @pictures = Picture.all
+    @users = User.all
   end
 
+def addFollower
+    user.follower
+  end
   # GET /pictures/1
   # GET /pictures/1.json
   def show

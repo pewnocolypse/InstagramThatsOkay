@@ -53,13 +53,13 @@
 <table>
   <tbody>
     <tr>
-      <td class = "col-md-2">
+      <td class = "col-md-1">
       </td>
       <td class = "col-md-2">
        <h4>GoldenKookieMakne</h4>
       </td>
-      <td class = "col-md-3">
-        <img  class = "img-responsive" class = "img-rounded" src="https://ygfamilyartists.files.wordpress.com/2011/06/i_love_kpop_by_xdajoker-d3fg3a0.jpg" width = 500 height = 600>
+      <td class = "col-md-4">
+        <img  class = "img-responsive" class = "img-rounded" src="https://ygfamilyartists.files.wordpress.com/2011/06/i_love_kpop_by_xdajoker-d3fg3a0.jpg" width = 700 height = 500>
 
       </td >
       
@@ -111,22 +111,25 @@
     <% @pictures.reverse.each do |picture| %>
       <% count = count + 1 %>
       
-        <td class = "col-md-2" > 
-
-                <a href="/pictures/<%=picture.id%>"><img class = "img-responsive" src= "<%= picture.image_url %>" width = 400 height = 400 ></a>
-                
+        <td class = "col-md-3" > 
+            <div class="hovereffect">
+              <a href="/pictures/<%=picture.id%>"><img class = "img-responsive" src= "<%= picture.image_url %>"   width = 400 height = 400 ></a>
+           
+          </div>
+  
 
           </td>
           
           
-         <td class = "col-md-w pull-down">
+         <td class = "col-md-1 pull-down">
             <%= link_to 'Edit', edit_picture_path(picture) %>
             <p></p>
             <p></p>
 
             <%= link_to picture, method: :delete, data: {confirm: 'Are you sure?'} do %>
               <%= image_tag("http://www.frankchimero.com/writing/what-screens-want/trash.jpg", size: "20x20") %>
-            <% end %>
+              <% end %>
+
           </td>
          
         <% if count ==3 %>
